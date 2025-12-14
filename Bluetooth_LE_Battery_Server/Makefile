@@ -159,6 +159,9 @@ CY_IGNORE+=$(SEARCH_whd-bsp-integration)
 CY_IGNORE+=$(SEARCH_wpa3-external-supplicant)
 CY_IGNORE+=$(SEARCH_wifi-resources)
 
+# Ignore the third-party directory (git submodules/other repositories)
+CY_IGNORE+="./third-party/mcuboot"
+
 ###############################################################################
 #
 # OTA Functionality Set up and support
