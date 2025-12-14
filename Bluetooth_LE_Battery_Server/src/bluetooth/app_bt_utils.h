@@ -1,15 +1,15 @@
+///
+/// \file   app_bt_utils.h
+/// \brief  This file consists of the utility functions that will help
+///         debugging and developing the applications easier with much
+///         more meaningful information.
+///
+/// \see    README.md
+///
+
 /******************************************************************************
- * File Name:   util_functions.h
- *
- * Description: This file consists of the utility functions that will help
- *              debugging and developing the applications easier with much
- *              more meaningful information.
- *
- * Related Document: See Readme.md
- *
- ********************************************************************************
  * Copyright 2021-2024, Cypress Semiconductor Corporation (an Infineon company)
- *or an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
+ * or an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
  *
  * This software, including source code, documentation and related
  * materials ("Software") is owned by Cypress Semiconductor Corporation
@@ -40,35 +40,66 @@
  * so agrees to indemnify Cypress against all liability.
  *******************************************************************************/
 
-#ifndef __APP_BT_UTILS_H__
-#define __APP_BT_UTILS_H__
+#ifndef APP_BT_UTILS_H
+#define APP_BT_UTILS_H
 
-/******************************************************************************
- *                                INCLUDES
- ******************************************************************************/
 #include "wiced_bt_dev.h"
 #include "wiced_bt_gatt.h"
+
 #include <stdio.h>
 
-/******************************************************************************
- *                                Constants
- ******************************************************************************/
 #define CASE_RETURN_STR(enum_val)                                              \
     case enum_val:                                                             \
         return #enum_val;
 
 #define FROM_BIT16_TO_8(val) ((uint8_t)((val) >> 8))
 
-/****************************************************************************
- *                              FUNCTION DECLARATIONS
- ***************************************************************************/
+///
+/// \brief Prints the address of the bluetooth device
+///
+/// \param wiced_bt_device_address_t bdadr bluetooth device address
+///
 void print_bd_address(wiced_bt_device_address_t bdadr);
+
+///
+/// \brief Converts the wiced_bt_management_evt_t enum value to
+/// its corresponding string literal.
+///
+/// \param wiced_bt_management_evt_t event Bluetooth event type
+///
+/// \return string representation of wiced_bt_management_evt_t value
+///
 const char *get_bt_event_name(wiced_bt_management_evt_t event);
+
+///
+/// \brief Converts the wiced_bt_ble_advert_mode_t enum value to
+/// its corresponding string literal.
+///
+/// \param wiced_bt_ble_advert_mode_t mode Bluetooth advertising mode type
+///
+/// \return string representation of wiced_bt_ble_advert_mode_t value
+///
 const char *get_bt_advert_mode_name(wiced_bt_ble_advert_mode_t mode);
+
+///
+/// \brief Converts the wiced_bt_gatt_disconn_reason_t enum value to
+/// its corresponding string literal.
+///
+/// \param wiced_bt_ble_advert_mode_t reason Bluetooth disconnection reason
+///
+/// \return string representation of wiced_bt_gatt_disconn_reason_t
+///
 const char *
 get_bt_gatt_disconn_reason_name(wiced_bt_gatt_disconn_reason_t reason);
+
+///
+/// \brief Converts the wiced_bt_gatt_status_t enum value to
+/// its corresponding string literal.
+///
+/// \param wiced_bt_ble_advert_mode_t status Bluetooth GATT status
+///
+/// \return string representation of wiced_bt_gatt_status_t
+///
 const char *get_bt_gatt_status_name(wiced_bt_gatt_status_t status);
 
-#endif /*__APP_BT_UTILS_H__ */
-
-/* [] END OF FILE */
+#endif /* APP_BT_UTILS_H */

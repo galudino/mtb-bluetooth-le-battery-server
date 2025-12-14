@@ -1,15 +1,15 @@
-/******************************************************************************
- * File Name:   app_bt_utils.c
- *
- * Description: This file consists of the utility functions that will help
- *              debugging and developing the applications easier with much
- *              more meaningful information.
- *
- * Related Document: See Readme.md
- *
- ********************************************************************************
+///
+/// \file   app_bt_utils.c
+/// \brief  This file consists of the utility functions that will help
+///         debugging and developing the applications easier with much
+///         more meaningful information.
+///
+/// \see    README.md
+///
+
+/********************************************************************************
  * Copyright 2021-2024, Cypress Semiconductor Corporation (an Infineon company)
- *or an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
+ * or an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
  *
  * This software, including source code, documentation and related
  * materials ("Software") is owned by Cypress Semiconductor Corporation
@@ -40,48 +40,27 @@
  * so agrees to indemnify Cypress against all liability.
  *******************************************************************************/
 
-/******************************************************************************
- *                                INCLUDES
- ******************************************************************************/
 #include "app_bt_utils.h"
 #include "wiced_bt_dev.h"
 
-/****************************************************************************
- *                              FUNCTION DEFINITIONS
- ***************************************************************************/
-/**
- * Function Name:
- * print_bd_address
- *
- * Function Description:
- * @brief  This is the utility function that prints the address of the Bluetooth
- * device
- *
- * @param  wiced_bt_device_address_t bdadr                : Bluetooth address
- *
- * @return  void
- *
- */
+///
+/// \brief Prints the address of the bluetooth device
+///
+/// \param wiced_bt_device_address_t bdadr bluetooth device address
+///
 void print_bd_address(wiced_bt_device_address_t bdadr) {
     printf("%02X:%02X:%02X:%02X:%02X:%02X\n", bdadr[0], bdadr[1], bdadr[2],
            bdadr[3], bdadr[4], bdadr[5]);
 }
 
-/**
- * Function Name:
- * get_bt_event_name
- *
- * Function Description:
- * @brief  The function converts the wiced_bt_management_evt_t enum value to its
- *         corresponding string literal. This will help the programmer to debug
- *easily with log traces without navigating through the source code.
- *
- * @param  wiced_bt_management_evt_t event: Bluetooth management event type
- *
- * Return:
- *  wiced_bt_management_evt_t
- *
- **/
+///
+/// \brief Converts the wiced_bt_management_evt_t enum value to
+/// its corresponding string literal.
+///
+/// \param wiced_bt_management_evt_t event Bluetooth event type
+///
+/// \return string representation of wiced_bt_management_evt_t value
+///
 const char *get_bt_event_name(wiced_bt_management_evt_t event) {
     switch ((int)event) {
         CASE_RETURN_STR(BTM_ENABLED_EVT)
@@ -124,20 +103,14 @@ const char *get_bt_event_name(wiced_bt_management_evt_t event) {
     return "UNKNOWN_EVENT";
 }
 
-/**
- * Function Name
- * get_bt_advert_mode_name
- **
- * Function Description:
- * @brief  The function converts the wiced_bt_ble_advert_mode_t enum value to
- *its corresponding string literal. This will help the programmer to debug
- *easily with log traces without navigating through the source code.
- *
- * @param  wiced_bt_ble_advert_mode_t mode: Bluetooth advertisement mode type
- *
- * @return wiced_bt_ble_advert_mode_t
- *
- **/
+///
+/// \brief Converts the wiced_bt_ble_advert_mode_t enum value to
+/// its corresponding string literal.
+///
+/// \param wiced_bt_ble_advert_mode_t mode Bluetooth advertising mode type
+///
+/// \return string representation of wiced_bt_ble_advert_mode_t value
+///
 const char *get_bt_advert_mode_name(wiced_bt_ble_advert_mode_t mode) {
     switch ((int)mode) {
         CASE_RETURN_STR(BTM_BLE_ADVERT_OFF)
@@ -154,20 +127,14 @@ const char *get_bt_advert_mode_name(wiced_bt_ble_advert_mode_t mode) {
     return "UNKNOWN_MODE";
 }
 
-/**
- * Function Name
- * get_bt_gatt_disconn_reason_name
- *
- * Function Description:
- * @brief    The function converts the wiced_bt_gatt_disconn_reason_t enum value
- *to its corresponding string literal. This will help the programmer to debug
- *easily with log traces without navigating through the source code.
- *
- * @param  wiced_bt_gatt_disconn_reason_t reason: GATT Disconnection reason
- *
- * @return wiced_bt_gatt_disconn_reason_t
- *
- **/
+///
+/// \brief Converts the wiced_bt_gatt_disconn_reason_t enum value to
+/// its corresponding string literal.
+///
+/// \param wiced_bt_ble_advert_mode_t reason Bluetooth disconnection reason
+///
+/// \return string representation of wiced_bt_gatt_disconn_reason_t
+///
 const char *
 get_bt_gatt_disconn_reason_name(wiced_bt_gatt_disconn_reason_t reason) {
     switch ((int)reason) {
@@ -184,20 +151,14 @@ get_bt_gatt_disconn_reason_name(wiced_bt_gatt_disconn_reason_t reason) {
     return "UNKNOWN_REASON";
 }
 
-/*
- * Function Name
- * get_bt_gatt_status_name
- *
- * Function Description:
- * @brief    The function converts the wiced_bt_gatt_status_t enum value to its
- * corresponding string literal. This will help the programmer to debug easily
- * with log traces without navigating through the source code.
- *
- *  @param  wiced_bt_gatt_status_t status: GATT status
- *
- * @return  wiced_bt_gatt_status_t
- *
- */
+///
+/// \brief Converts the wiced_bt_gatt_status_t enum value to
+/// its corresponding string literal.
+///
+/// \param wiced_bt_ble_advert_mode_t status Bluetooth GATT status
+///
+/// \return string representation of wiced_bt_gatt_status_t
+///
 const char *get_bt_gatt_status_name(wiced_bt_gatt_status_t status) {
     switch ((int)status) {
         CASE_RETURN_STR(WICED_BT_GATT_SUCCESS)
@@ -245,5 +206,3 @@ const char *get_bt_gatt_status_name(wiced_bt_gatt_status_t status) {
 
     return "UNKNOWN_STATUS";
 }
-
-/* [] END OF FILE */
