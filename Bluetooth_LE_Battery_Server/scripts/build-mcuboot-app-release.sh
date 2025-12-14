@@ -43,7 +43,7 @@ function main() {
     local gcc_path_string="$toolchain_path_string"
     local cc_string="$gcc_path_string/bin/arm-none-eabi-gcc"
 
-    local mcuboot_cypress_path_string="third_party/mcuboot/boot/cypress"
+    local mcuboot_cypress_path_string="third-party/mcuboot/boot/cypress"
     local app_name_string="MCUBootApp"
     local platform_string="PSOC_063_1M"
     local flash_map_path_string="../../../../psoc63_1m_cm0_int_swap_single.json"
