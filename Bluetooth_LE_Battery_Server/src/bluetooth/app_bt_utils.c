@@ -43,24 +43,11 @@
 #include "app_bt_utils.h"
 #include "wiced_bt_dev.h"
 
-///
-/// \brief Prints the address of the bluetooth device
-///
-/// \param wiced_bt_device_address_t bdadr bluetooth device address
-///
 void print_bd_address(wiced_bt_device_address_t bdadr) {
     printf("%02X:%02X:%02X:%02X:%02X:%02X\n", bdadr[0], bdadr[1], bdadr[2],
            bdadr[3], bdadr[4], bdadr[5]);
 }
 
-///
-/// \brief Converts the wiced_bt_management_evt_t enum value to
-/// its corresponding string literal.
-///
-/// \param wiced_bt_management_evt_t event Bluetooth event type
-///
-/// \return string representation of wiced_bt_management_evt_t value
-///
 const char *get_bt_event_name(wiced_bt_management_evt_t event) {
     switch ((int)event) {
         CASE_RETURN_STR(BTM_ENABLED_EVT)
@@ -103,14 +90,6 @@ const char *get_bt_event_name(wiced_bt_management_evt_t event) {
     return "UNKNOWN_EVENT";
 }
 
-///
-/// \brief Converts the wiced_bt_ble_advert_mode_t enum value to
-/// its corresponding string literal.
-///
-/// \param wiced_bt_ble_advert_mode_t mode Bluetooth advertising mode type
-///
-/// \return string representation of wiced_bt_ble_advert_mode_t value
-///
 const char *get_bt_advert_mode_name(wiced_bt_ble_advert_mode_t mode) {
     switch ((int)mode) {
         CASE_RETURN_STR(BTM_BLE_ADVERT_OFF)
@@ -127,14 +106,6 @@ const char *get_bt_advert_mode_name(wiced_bt_ble_advert_mode_t mode) {
     return "UNKNOWN_MODE";
 }
 
-///
-/// \brief Converts the wiced_bt_gatt_disconn_reason_t enum value to
-/// its corresponding string literal.
-///
-/// \param wiced_bt_ble_advert_mode_t reason Bluetooth disconnection reason
-///
-/// \return string representation of wiced_bt_gatt_disconn_reason_t
-///
 const char *
 get_bt_gatt_disconn_reason_name(wiced_bt_gatt_disconn_reason_t reason) {
     switch ((int)reason) {
@@ -151,14 +122,6 @@ get_bt_gatt_disconn_reason_name(wiced_bt_gatt_disconn_reason_t reason) {
     return "UNKNOWN_REASON";
 }
 
-///
-/// \brief Converts the wiced_bt_gatt_status_t enum value to
-/// its corresponding string literal.
-///
-/// \param wiced_bt_ble_advert_mode_t status Bluetooth GATT status
-///
-/// \return string representation of wiced_bt_gatt_status_t
-///
 const char *get_bt_gatt_status_name(wiced_bt_gatt_status_t status) {
     switch ((int)status) {
         CASE_RETURN_STR(WICED_BT_GATT_SUCCESS)
