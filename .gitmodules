@@ -1,0 +1,3 @@
+[submodule "Bluetooth_LE_Battery_Server/third-party/mcuboot"]
+	path = Bluetooth_LE_Battery_Server/third-party/mcuboot
+	url = https://github.com/mcu-tools/mcuboot.git
